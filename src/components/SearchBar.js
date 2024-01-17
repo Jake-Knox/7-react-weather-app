@@ -1,15 +1,24 @@
 import React, { useState } from 'react';
 
-function SearchBar() {
+// `http://api.openweathermap.org/data/2.5/weather?q={location}&units=metric&appid={API_KEY}`
+
+function SearchBar(apiKey) {
     const [location, setLocation] = useState('');
 
-    const handleSearch = () => {
-        // Fetch weather data based on location
-        // Update the state and trigger an action to fetch data
-    }
+    const handleSearch = async () => {
+        // Fetch weather data -> Update state
+        try {
+            console.log(apiKey.apiKey);
+            const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast/daily?q=${location}&appid=${apiKey.apiKey}`);
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error('Error fetching weather data', error);
+        }
+    };
 
     return (
-        <div>
+        <div className='search-container'>
             <input
                 type='text'
                 placeholder='Enter a city or postcode here'
