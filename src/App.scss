@@ -48,20 +48,28 @@ $font-color: #333;
   }
 
   .weather-card {
-    max-width: 400px;
-    margin: 20px auto;
+    max-width: 300px;
+    margin: 20px;
     padding: 20px;
-    background-color: $card-background;
+    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
     h2 {
-      color: $primary-color;
+      font-size: 1.5em;
+      color: #3498db;
+      margin-bottom: 10px;
     }
 
     p {
-      color: $font-color;
-      margin: 10px 0;
+      font-size: 1em;
+      color: #333;
+      margin-bottom: 8px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
+
 }
